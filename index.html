@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <style>
+        /* Center the logo perfectly on a dark background */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #121212; /* You can change this to any background color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Styling for the logo and the fade-out effect */
+        .splash-logo {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+            opacity: 1;
+            transition: opacity 1s ease-in-out; /* Smooth 1-second fade out */
+        }
+
+        /* Class added via JavaScript to trigger the fade */
+        .fade-out {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Display your uploaded PNG -->
+    <img src="bootscreen.png" alt="Logo" id="logo" class="splash-logo">
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const logo = document.getElementById('logo');
+            
+            // 1. Wait 5 seconds (5000 milliseconds)
+            setTimeout(() => {
+                // 2. Add the CSS class to fade the logo out
+                logo.classList.add('fade-out');
+                
+                // 3. Wait 1 second for the fade animation to finish, then redirect
+                setTimeout(() => {
+                    window.location.href = 'offline.html';
+                }, 1000); 
+
+            }, 5000);
+        });
+    </script>
+
+</body>
+</html>
